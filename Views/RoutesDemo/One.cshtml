@@ -1,0 +1,28 @@
+﻿@model string
+<p>View #1</p>
+<p>Thread from the server [ {{models.ServerThread}} ]</p>
+<p>Thread from the server (via viewbag )[ @ViewBag.ServerThread ]</p>
+
+<form ng-submit="searchProducts()">
+    <button type="submit">Search</button>
+    <div class="container" ng-init="products = @Model">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-condensed table-hover">
+                    <tr>
+                        <th>Id</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr ng-repeat="product in products">
+                        <td>{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.description}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
