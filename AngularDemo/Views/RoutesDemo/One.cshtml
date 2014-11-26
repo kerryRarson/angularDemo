@@ -1,11 +1,11 @@
-﻿@model string
-<p>View #1</p>
+﻿<p>View #1</p>
 <p>Thread from the server [ {{models.ServerThread}} ]</p>
-<p>Thread from the server (via viewbag )[ @ViewBag.ServerThread ]</p>
+<p>Thread from the server (via view bag )[ @ViewBag.ServerThread ]</p>
 
+@*from http://stackoverflow.com/questions/22262841/how-am-i-supposed-to-pass-data-from-serverside-controller-an-angularjs-controlle *@
 <form ng-submit="searchProducts()">
     <button type="submit">Search</button>
-    <div class="container" ng-init="products = @Model">
+    <div class="container" ng-init="products = @ViewBag.Products">
         <div class="row">
             <div class="col-lg-12">
                 <table class="table table-condensed table-hover">
@@ -15,12 +15,22 @@
                         <th>Price</th>
                         <th>Description</th>
                     </tr>
-                    <tr ng-repeat="product in products">
-                        <td>{{product.id}}</td>
-                        <td>{{product.name}}</td>
-                        <td>{{product.price}}</td>
-                        <td>{{product.description}}</td>
+                    <tr ng-repeat="product in @Model.Products">
+                        <td>{{product.Id}}</td>
+                        <td>{{product.Name}}</td>
+                        <td>{{product.Price}}</td>
+                        <td>{{product.Description}}</td>
                     </tr>
+                    @foreach (var p in Model.Products)
+                    {
+                        <tr>
+                            <td>@p.Id</td>
+                            <td>@p.Name</td>
+                            <td>@p.Price</td>
+                            <td>@p.Description</td>
+                        </tr>
+                    }
+                    
                 </table>
             </div>
         </div>

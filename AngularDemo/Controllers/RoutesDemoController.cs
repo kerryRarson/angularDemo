@@ -10,10 +10,20 @@ namespace AngularDemo.Controllers
         public ActionResult One()
         {
             ViewBag.ServerThread = System.Threading.Thread.CurrentThread.ManagedThreadId;
-            return View();
+            ViewBag.Products = this.GetSerializedProducts();
+
+            var model = new Models.ViewOneModel();
+            model.Products = new[] { new Product{Id=1,Name="product1",Price=4500,Description="product #1"},
+                new Product{Id=2,Name="product2",Price=500,Description="This is product #2 product"},
+                new Product{Id=3,Name="product3",Price=400,Description="description of this product"},
+                new Product{Id=4,Name="product4",Price=5500,Description="Yo, Number 4!"},
+                new Product{Id=5,Name="product5",Price=66500,Description="Product number 5's description."}
+            };
+            return View(model);
         }
         public ActionResult Two(int donuts = 1)
         {
+            
             ViewBag.Donuts = donuts;
             return View();
         }
