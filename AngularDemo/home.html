@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>-->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
+    <script src="Scripts/angular.min.js"></script>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+
+    <script src="Scripts/events/eventsModule.js"></script>
+    <script src="Scripts/events/eventsController.js"></script>
+    
+</head>
+<body ng-app="eventsModule" style="Verdana, Geneva, DejaVu Sans, sans-serif">
+    <div ng-controller="HelloWorldCtl">{{helloWorldMessage}}</div>
+
+    <script type="text/javascript">
+        function HelloWorldCtl($scope) {
+            $scope.helloWorldMessage = "This is from the client - " + (new Date()).toDateString();
+        }
+    </script>
+
+    
+    <div class="container" ng-init="talks = [
+       {id: '1000', name: 'Real Time Web Development with signalR', speaker: 'Some Guy', venue: 'Room 101', duration: '45m'},
+       {id: '1001', name: 'Getting Started With Microsoft CRM Dynamics', speaker: 'Phani Bomana', venue: 'Conference Room 1201', duration: '2hrs'},
+       {id: '1004', name: 'Real World Development with node.js', speaker: 'Bill Gates', venue: 'Conference Room 1201', duration: '15m'}
+       ]" >
+        <h2 >Conference Sessions</h2>
+
+        <div class="row">
+        <table class="table table-condensed table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Speaker</th>
+                <th>Venue</th>
+                <th>Duration</th>
+            </tr>
+            <tr ng-repeat="talk in talks">
+                <td>{{talk.id}}</td>
+                <td>{{talk.name}}</td>
+                <td>{{talk.speaker}}</td>
+                <td>{{talk.venue}}</td>
+                <td>{{talk.duration}}</td>
+            </tr>
+        </table>
+        </div>
+
+        <div class="row" ng-controller="eventsController">
+            <!-- from http://codewala.net/2014/06/03/learning-angularjs-with-examples-part-2/-->
+            <table class="table table-condensed table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Speaker</th>
+                    <th>Venue</th>
+                    <th>Duration</th>
+                    <th>Id</th>
+                </tr>
+                <tr ng-repeat="talk in talks">
+                    <td>{{talk.name}}</td>
+                    <td>{{talk.speaker}}</td>
+                    <td>{{talk.venue}}</td>
+                    <td>{{talk.duration}}</td>
+                    <td>{{talk.id}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

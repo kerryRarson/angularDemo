@@ -189,6 +189,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="home.html" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AngularDemo.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -196,6 +198,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controllers\LoginController.js" />
     <Content Include="Scripts\controllers\RegisterController.js" />
+    <Content Include="Scripts\events\eventsController.js" />
+    <Content Include="Scripts\events\eventsModule.js" />
     <Content Include="Scripts\factories\AuthHttpResponseInterceptor.js" />
     <Content Include="Scripts\factories\LoginFactory.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
